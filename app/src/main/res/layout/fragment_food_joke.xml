@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mainViewModel"
+            type="com.ksa.foody.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_food_joke_background_light"
+        tools:context=".ui.fragments.FoodJokeFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="10dp"
+            app:strokeWidth="1dp"
+            android:visibility="visible"
+            app:strokeColor="@color/strokeColor"
+            android:id="@+id/food_joke_cardview"
+            readJokeApiResponse="@{mainViewModel.foodJokeResponse}"
+            readFoodJokeDatabase="@{mainViewModel.readFoodJoke}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/holder_layout">
+
+                <ScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/holder_layout"
+                    app:layout_constraintEnd_toEndOf="@id/holder_layout"
+                    app:layout_constraintStart_toStartOf="@id/holder_layout"
+                    app:layout_constraintTop_toTopOf="@id/holder_layout">
+
+                    <TextView
+                        android:id="@+id/joke_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:padding="8dp"
+                        android:text="@string/lorem_ipsum_is_simply_dummy_text_of_the_printing_and_typesetting_industry_lorem_ipsum_has_been_the_industry_s_standard_dummy_text_ever_since_the_1500s_when_an_unknown_printer_took_a_galley_of_type_and_scrambled_it_to_make_a_type_specimen_book"
+                        android:textColor="@color/titleColor"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </ScrollView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
+            android:id="@+id/joke_progressbar"
+            android:visibility="invisible"
+            readJokeApiResponse="@{mainViewModel.foodJokeResponse}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/sad_imageview"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:alpha="0.5"
+            android:visibility="invisible"
+            android:src="@drawable/ic_sad"
+            readJokeApiResponse2="@{mainViewModel.foodJokeResponse}"
+            readFoodJokeDatabase2="@{mainViewModel.readFoodJoke}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.37" />
+
+        <TextView
+            android:id="@+id/foodjoke_error_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/error"
+            android:alpha="0.5"
+            readJokeApiResponse2="@{mainViewModel.foodJokeResponse}"
+            readFoodJokeDatabase2="@{mainViewModel.readFoodJoke}"
+            android:visibility="invisible"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/sad_imageview"
+            app:layout_constraintStart_toStartOf="@+id/sad_imageview"
+            app:layout_constraintTop_toBottomOf="@+id/sad_imageview" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

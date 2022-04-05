@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="4dp">
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:cardCornerRadius="10dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/strokeColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/ingredients_cardview">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:elevation="2dp"
+            android:background="@color/cardBackgroundColor"
+            android:id="@+id/ingredients_background">
+
+            <View
+                android:layout_width="120dp"
+                android:layout_height="0dp"
+                android:id="@+id/white_background"
+                android:background="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                app:layout_constraintStart_toStartOf="@id/white_background"
+                app:layout_constraintEnd_toEndOf="@id/white_background"
+                app:layout_constraintTop_toTopOf="@id/white_background"
+                app:layout_constraintBottom_toBottomOf="@id/white_background"
+                android:id="@+id/ingredient_imageview"/>
+
+            <TextView
+                android:id="@+id/ingredient_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/name"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/titleColor"
+                android:fontFamily="@font/courgette"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/white_background"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/ingredient_amount_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="100"
+                app:layout_constraintStart_toStartOf="@+id/ingredient_textView"
+                app:layout_constraintTop_toBottomOf="@+id/ingredient_textView" />
+
+            <TextView
+                android:id="@+id/ingredient_unit_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="Grams"
+                app:layout_constraintStart_toEndOf="@+id/ingredient_amount_textView"
+                app:layout_constraintTop_toBottomOf="@+id/ingredient_textView" />
+
+            <TextView
+                android:id="@+id/ingredient_consistency_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Consistency"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ingredient_amount_textView"
+                app:layout_constraintTop_toBottomOf="@+id/ingredient_amount_textView" />
+
+            <TextView
+                android:id="@+id/ingredient_original_textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Original"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ingredient_consistency_textView"
+                app:layout_constraintTop_toBottomOf="@+id/ingredient_consistency_textView" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
